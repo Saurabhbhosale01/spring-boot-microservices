@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: product-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/product_service
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+    show-sql: true
+
+    properties:
+      hibernate:
+#        dialect: org.hibernate.dialect.PostgresSQLDialect
+        jdbc:
+          time_zone: UTC
+
+server:
+  port: 8081
+
+  error:
+    include-message: always
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+
+#kafka-properties
+  kafka:
+    bootstrap-servers: localhost:9092
+
+    template:
+      default-topic: order-placed
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+
+      properties:
+        schema:
+          registry:
+            url: http://localhost:8085
