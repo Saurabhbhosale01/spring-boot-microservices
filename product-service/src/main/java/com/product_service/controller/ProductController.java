@@ -3,13 +3,11 @@ package com.product_service.controller;
 import com.product_service.dto.Product;
 import com.product_service.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.RequestEntity;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -28,6 +26,19 @@ public class ProductController {
     @ResponseStatus(HttpStatus.OK)
     public List<Product> getAllProduct(){
         return productService.getAllProduct();
+    }
+
+    @GetMapping("/{productId}")
+    @ResponseStatus(HttpStatus.OK)
+    public Product getProductById(@PathVariable UUID productId){
+       return productService.getProductById(productId);
+    }
+
+
+    @PutMapping("/{productId}")
+    @ResponseStatus(HttpStatus.OK)
+    public void updateProduct(@RequestBody Product product, @PathVariable UUID productId){
+        productService.updateProduct(product, productId);
     }
 
 

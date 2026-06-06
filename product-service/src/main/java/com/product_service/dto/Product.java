@@ -17,13 +17,34 @@ public class Product {
 
     private Integer id;
 
-   private UUID uuid;
+    private UUID uuid;
 
     private String name;
 
-    private double discount;
+    private String description;
 
-    private double price;
+    private String brand;
 
-    private double rating;
+    private String category;
+
+    private String sku;
+
+    private Double price;
+
+    private Double discount;
+
+    private Double finalPrice;
+
+    private Boolean active;
+
+    private String imageUrl;
+
+    private Double rating;
+
+    private Integer totalReviews;
+
+    private Double weight;
+
+    private String color;
+
 }
