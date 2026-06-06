@@ -49,5 +49,13 @@ public class ProductServiceImpl implements ProductService{
 
     }
 
+    @Override
+    public void archiveProduct(UUID productId,boolean status){
+        ProductEntity product1 = productRepository.findByUuid(productId).orElseThrow(()->new RuntimeException("product not found"));
+        product1.setActive(status);
+        productRepository.save(product1);
+
+    }
+
 
 }

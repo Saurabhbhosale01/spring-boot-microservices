@@ -15,4 +15,6 @@ public interface ProductService {
     Product getProductById(UUID productId);
 
     void updateProduct(Product product ,UUID productId);
+
+    void archiveProduct(UUID productId, boolean status);
 }
