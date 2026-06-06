@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -16,8 +17,6 @@ public class ProductServiceImpl implements ProductService{
 
     private final ProductRepository productRepository;
 
-//    @Autowired
-//    private ProductService productService;
 
     @Override
     public void saveProduct(Product product) {
@@ -30,6 +29,24 @@ public class ProductServiceImpl implements ProductService{
     public List<Product> getAllProduct() {
         return productRepository.findAll().stream()
                 .map(ProductEntity::toDto).toList();
+    }
+
+    @Override
+    public Product getProductById(UUID productId) {
+        ProductEntity product=productRepository.findByUuid(productId).orElseThrow(() -> new RuntimeException("product not found"));
+
+        return ProductEntity.toDto(product);
+
+    }
+
+    @Override
+    public void updateProduct(Product product ,UUID productId) {
+        ProductEntity entity=productRepository.findByUuid(productId).orElseThrow(()->new RuntimeException("product not found"));
+
+        ProductEntity.updateEntity(product,entity);
+
+        productRepository.save(entity);
+
     }
 
 
