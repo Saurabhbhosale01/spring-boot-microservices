@@ -41,6 +41,12 @@ public class ProductController {
         productService.updateProduct(product, productId);
     }
 
+    @PutMapping("/{productId}/{status}")
+    @ResponseStatus(HttpStatus.OK)
+    public void archiveProduct(@PathVariable UUID productId, @PathVariable boolean status){
+        productService.archiveProduct(productId,status);
+    }
+
 
 
 }
