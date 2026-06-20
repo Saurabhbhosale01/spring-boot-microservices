@@ -162,10 +162,6 @@ Authentication and Authorization are implemented using Keycloak.
 * Git & GitHub
 * Postman
 
-### Frontend (Planned / Integration)
-
-* Angular 18
-
 ---
 
 ## ✨ Key Features
