@@ -3,7 +3,7 @@ spring:
     name: product-service
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/product_service
+    url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
     password: root
     driver-class-name: org.postgresql.Driver
@@ -30,19 +30,8 @@ logging:
   level:
     org.springframework.web: DEBUG
 
-#kafka-properties
-  kafka:
-    bootstrap-servers: localhost:9092
-
-    template:
-      default-topic: order-placed
-
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-
-      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
-
-      properties:
-        schema:
-          registry:
-            url: http://localhost:8085
+Swagger doc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api.docs
