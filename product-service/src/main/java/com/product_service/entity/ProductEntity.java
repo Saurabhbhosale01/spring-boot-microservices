@@ -1,5 +1,6 @@
 package com.product_service.entity;
 
+import com.product_service.ProductStatus;
 import com.product_service.dto.Product;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -52,6 +53,9 @@ public class ProductEntity {
 
     private String color;
 
+    @Enumerated(EnumType.STRING)
+    private ProductStatus productStatus;
+
     public static ProductEntity toEntity(Product product) {
         return ProductEntity.builder()
                 .name(product.getName())
@@ -68,6 +72,7 @@ public class ProductEntity {
                 .totalReviews(product.getTotalReviews())
                 .weight(product.getWeight())
                 .color(product.getColor())
+                .productStatus(product.getProductStatus())
                 .build();
     }
 
@@ -88,6 +93,7 @@ public class ProductEntity {
                 .totalReviews(productEntity.getTotalReviews())
                 .weight(productEntity.getWeight())
                 .color(productEntity.getColor())
+                .productStatus(productEntity.getProductStatus())
                 .build();
     }
 
@@ -107,6 +113,7 @@ public class ProductEntity {
         entity.setTotalReviews(product.getTotalReviews());
         entity.setWeight(product.getWeight());
         entity.setColor(product.getColor());
+        entity.setProductStatus(product.getProductStatus());
         return entity;
     }
 

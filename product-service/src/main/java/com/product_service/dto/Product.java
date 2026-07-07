@@ -1,5 +1,6 @@
 package com.product_service.dto;
 
+import com.product_service.ProductStatus;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,8 +15,6 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Product {
-
-    private Integer id;
 
     private UUID uuid;
 
@@ -47,4 +46,5 @@ public class Product {
 
     private String color;
 
+    private ProductStatus productStatus;
 }
