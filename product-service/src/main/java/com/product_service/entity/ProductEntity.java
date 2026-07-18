@@ -17,7 +17,7 @@ import java.util.UUID;
 @Table(name="product")
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductEntity {
+public class ProductEntity extends AuditableEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

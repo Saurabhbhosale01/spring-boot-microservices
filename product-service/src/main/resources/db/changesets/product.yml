@@ -1,0 +1,110 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-product-table
+      author: saurabh
+      changes:
+        - createTable:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: uuid
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    unique: true
+
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: description
+                  type: TEXT
+
+              - column:
+                  name: brand
+                  type: VARCHAR(100)
+
+              - column:
+                  name: category
+                  type: VARCHAR(100)
+
+              - column:
+                  name: sku
+                  type: VARCHAR(100)
+                  constraints:
+                    unique: true
+
+              - column:
+                  name: price
+                  type: DOUBLE PRECISION
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: discount
+                  type: DOUBLE PRECISION
+
+              - column:
+                  name: final_price
+                  type: DOUBLE PRECISION
+
+              - column:
+                  name: active
+                  type: BOOLEAN
+                  defaultValueBoolean: true
+
+              - column:
+                  name: image_url
+                  type: VARCHAR(500)
+
+              - column:
+                  name: rating
+                  type: DOUBLE PRECISION
+                  defaultValueNumeric: 0
+
+              - column:
+                  name: total_reviews
+                  type: INTEGER
+                  defaultValueNumeric: 0
+
+              - column:
+                  name: weight
+                  type: DOUBLE PRECISION
+
+              - column:
+                  name: color
+                  type: VARCHAR(50)
+
+              - column:
+                  name: product_status
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: modified
+                  type: TIMESTAMP
+
+              - column:
+                  name: created_by
+                  type: UUID
+
+              - column:
+                  name: modified_by
+                  type: UUID
