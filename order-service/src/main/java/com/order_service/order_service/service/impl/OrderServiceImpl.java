@@ -44,7 +44,7 @@ public class OrderServiceImpl implements OrderService {
     public List<Order> getAllOrders() {
         List<OrderEntity> orderss= orderRepository.findAll();
        return orderss.stream()
-               .map(OrderEntity::toDto)
+               .map(orderss::toDto)
                .toList();
 
 

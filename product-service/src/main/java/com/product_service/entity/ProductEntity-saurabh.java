@@ -14,10 +14,10 @@ import java.util.UUID;
 @Builder
 @Data
 @Entity
-@Table(name="product")
+@Table(name="pro    duct")
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductEntity {
+public class ProductEntity extends AuditableEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: keycloak-Tutorial
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/keycloak
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  keycloak:
+    realm: master
+    base-url: http://localhost:8081
+    auth-url: ${keycloak.base-url}
+    realm-url: ${keycloak.base-url}/realms
+    client-id: admin-cli
+    client-secret: t59cMYMVURMaOCj9y0W4hQATzwvavS6OgxHTqObWkgd6bmYqNhjqMQphCNmUfM7HqpwAWTZMwrmOIymrjRBRuJ
+
